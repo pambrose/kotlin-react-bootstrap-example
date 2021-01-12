@@ -5,8 +5,8 @@ import react.RClass
 import react.RProps
 
 @JsName("default")
-external val reactPlayer: RClass<ReactBootstrapProps>
+external val reactPlayer: RClass<ReactPlayerProps>
 
-external interface ReactBootstrapProps : RProps {
+external interface ReactPlayerProps : RProps {
   var url: String
 }

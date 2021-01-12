@@ -3,21 +3,21 @@ import react.RProps
 
 val bsAlertHeading: RClass<RProps> = bsAlert.asDynamic().Heading
 
-val bsAlertLink: RClass<BootstrapAlertLinkProps> = bsAlert.asDynamic().Link
+val bsAlertLink: RClass<BsAlertLinkProps> = bsAlert.asDynamic().Link
 
-interface BootstrapAlertLinkProps : RProps {
+interface BsAlertLinkProps : RProps {
   var href: String
 }
 
-val bsFormGroup: RClass<BootstrapFormGroupProps> = bsForm.asDynamic().Group
+val bsFormGroup: RClass<BsFormGroupProps> = bsForm.asDynamic().Group
 
-interface BootstrapFormGroupProps : RProps {
+interface BsFormGroupProps : RProps {
   var controlId: String
 }
 
-val bsFormLabel: RClass<BootstrapFormLabelProps> = bsForm.asDynamic().Label
+val bsFormLabel: RClass<BsFormLabelProps> = bsForm.asDynamic().Label
 
-interface BootstrapFormLabelProps : RProps {
+interface BsFormLabelProps : RProps {
   var controlId: String
   var column: dynamic
   var htmlFor: String
@@ -25,9 +25,9 @@ interface BootstrapFormLabelProps : RProps {
   var bsPrefix: String
 }
 
-val bsFormControl: RClass<BootstrapFormControlProps> = bsForm.asDynamic().Control
+val bsFormControl: RClass<BsFormControlProps> = bsForm.asDynamic().Control
 
-interface BootstrapFormControlProps : RProps {
+interface BsFormControlProps : RProps {
   var id: String
   var type: String
   var placeholder: String
@@ -45,25 +45,25 @@ interface BootstrapFormControlProps : RProps {
   var value: dynamic
 }
 
-val bsFormText: RClass<BootstrapFormTextProps> = bsForm.asDynamic().Text
+val bsFormText: RClass<BsFormTextProps> = bsForm.asDynamic().Text
 
-interface BootstrapFormTextProps : RProps {
+interface BsFormTextProps : RProps {
   var className: String
   var muted: Boolean
 }
 
-val bsFormCheck: RClass<BootstrapFormCheckProps> = bsForm.asDynamic().Check
+val bsFormCheck: RClass<BsFormCheckProps> = bsForm.asDynamic().Check
 
-interface BootstrapFormCheckProps : RProps {
+interface BsFormCheckProps : RProps {
   var id: String
   var type: String
   var label: String
   var disabled: Boolean
 }
 
-val bsFormSwitch: RClass<BootstrapFormSwitchProps> = bsForm.asDynamic().Switch
+val bsFormSwitch: RClass<BsFormSwitchProps> = bsForm.asDynamic().Switch
 
-interface BootstrapFormSwitchProps : RProps {
+interface BsFormSwitchProps : RProps {
   var id: String
   var label: String
   var disabled: Boolean
