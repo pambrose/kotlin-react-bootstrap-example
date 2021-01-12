@@ -1,3 +1,6 @@
+val logback_version: String by project
+val logging_version: String by project
+
 plugins {
   id("org.jetbrains.kotlin.js") version "1.4.30-M1"
   id("com.github.ben-manes.versions") version "0.36.0"
@@ -27,6 +30,9 @@ dependencies {
   implementation("org.jetbrains:kotlin-react-dom:17.0.1-pre.136-kotlin-1.4.21")
   implementation("org.jetbrains:kotlin-styled:5.2.0-pre.136-kotlin-1.4.21")
   implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
+
+  implementation("io.github.microutils:kotlin-logging:$logging_version")
+  implementation("ch.qos.logback:logback-classic:$logback_version")
 
   implementation(npm("react", "16.13.1"))
   implementation(npm("react-dom", "16.13.1"))

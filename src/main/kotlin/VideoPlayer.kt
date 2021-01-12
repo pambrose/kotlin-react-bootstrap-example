@@ -1,25 +1,18 @@
-import kotlinx.browser.window
-import kotlinx.css.Color
-import kotlinx.css.Display
 import kotlinx.css.TextAlign
-import kotlinx.css.backgroundColor
-import kotlinx.css.display
 import kotlinx.css.margin
-import kotlinx.css.marginBottom
+import kotlinx.css.marginLeft
+import kotlinx.css.marginRight
+import kotlinx.css.marginTop
 import kotlinx.css.pct
 import kotlinx.css.px
 import kotlinx.css.textAlign
 import kotlinx.css.width
-import kotlinx.html.js.onClickFunction
 import react.RBuilder
 import react.RComponent
 import react.RProps
 import react.RState
-import react.dom.div
 import react.dom.h3
-import react.setState
 import styled.css
-import styled.styledButton
 import styled.styledDiv
 import styled.styledSpan
 
@@ -49,7 +42,7 @@ class VideoPlayer(props: VideoPlayerProps) : RComponent<VideoPlayerProps, VideoP
 
       h3 { +"${props.video.speaker}: ${props.video.title}" }
 
-      styledDiv {
+      styledSpan {
 
         css {
           textAlign = TextAlign.center
@@ -60,111 +53,123 @@ class VideoPlayer(props: VideoPlayerProps) : RComponent<VideoPlayerProps, VideoP
           margin = "0 auto"
         }
 
-        div {
-          styledButton {
-            css {
-              display = Display.block
-              backgroundColor = if (props.unwatchedVideo) Color.lightGreen else Color.red
-            }
+        styledSpan {
+          css {
+            marginLeft = 5.px
+            marginRight = 5.px
+          }
 
+          bsButton {
             attrs {
-              onClickFunction = {
+              variant = if (props.unwatchedVideo) "success" else "danger"
+              size = "lg"
+              onClick = {
                 props.onWatchedButtonPressed(props.video)
               }
             }
-
             +"Mark as ${if (props.unwatchedVideo) "" else "un"}watched"
           }
+        }
 
-          styledSpan {
-            css {
-              display = Display.flex
-              marginBottom = 10.px
-            }
+//          styledButton {
+//            css {
+//              display = Display.block
+//              backgroundColor = if (props.unwatchedVideo) Color.lightGreen else Color.red
+//            }
+//
+//            attrs {
+//              onClickFunction = {
+//                props.onWatchedButtonPressed(props.video)
+//              }
+//            }
+//
+//            +"Mark as ${if (props.unwatchedVideo) "" else "un"}watched"
+//          }
 
-            bootstrapButton {
-              attrs {
-                variant = "outline-success"
-                size = "sm"
-                onClick = {
-                  window.alert("Success")
-                }
-              }
-              +"This is a bootstrap button"
-            }
+//          styledSpan {
+//            css {
+//              display = Display.flex
+//              marginBottom = 10.px
+//            }
+//
+//            bootstrapAlert {
+//              attrs {
+//                variant = "primary"
+//                closeLabel = "close label"
+//                show = state.opened!!
+//                dismissible = true
+//                onClose = {
+//                  setState {
+//                    opened = false
+//                  }
+//                }
+//              }
+//
+//              bootstrapAlertHeading {
+//                +"Alert Heading Text"
+//              }
+//
+//              bootstrapAlertLink {
+//                attrs {
+//                  href = "http://www.abc.com"
+//                }
+//                +"www.abc.com"
+//              }
+//              +"This is the text inside the Alert"
+//            }
+//          }
+//
+//          styledButton {
+//            +"Open Alert"
+//            attrs {
+//              onClickFunction = {
+//                setState {
+//                  opened = true
+//                }
+//              }
+//            }
+//          }
 
-            bootstrapAlert {
-              attrs {
-                variant = "primary"
-                closeLabel = "close label"
-                show = state.opened!!
-                dismissible = true
-                onClose = {
-                  setState {
-                    opened = false
-                  }
-                }
-              }
-
-              bootstrapAlertHeading {
-                +"Alert Heading Text"
-              }
-
-              bootstrapAlertLink {
-                attrs {
-                  href = "http://www.abc.com"
-                }
-                +"www.abc.com"
-              }
-              +"This is the text inside the Alert"
-            }
+        emailShareButton {
+          attrs {
+            url = props.video.videoUrl
+            subject = "This is a test subject"
           }
 
-          styledButton {
-            +"Open Alert"
+          emailIcon {
             attrs {
-              onClickFunction = {
-                setState {
-                  opened = true
-                }
-              }
+              size = 32
+              round = true
             }
           }
+        }
 
-          emailShareButton {
-            attrs {
-              url = props.video.videoUrl
-              subject = "This is a test subject"
-            }
-
-            emailIcon {
-              attrs {
-                size = 32
-                round = true
-              }
-            }
+        telegramShareButton {
+          attrs {
+            url = props.video.videoUrl
           }
 
-          telegramShareButton {
+          telegramIcon {
             attrs {
-              url = props.video.videoUrl
-            }
-
-            telegramIcon {
-              attrs {
-                size = 32
-                round = true
-              }
+              size = 32
+              round = true
             }
           }
         }
       }
-    }
 
-    styledDiv {
-      reactPlayer {
-        attrs {
-          url = props.video.videoUrl
+      styledDiv {
+        css {
+          // Center the player
+          width = 50.pct
+          margin = "0 auto"
+          marginTop = 20.px
+        }
+
+        reactPlayer {
+          attrs {
+            url = props.video.videoUrl
+          }
         }
       }
     }
