@@ -29,6 +29,7 @@ val bsFormControl: RClass<BsFormControlProps> = bsForm.asDynamic().Control
 
 interface BsFormControlProps : RProps {
   var id: String
+  var name: String
   var type: String
   var placeholder: String
   var size: String

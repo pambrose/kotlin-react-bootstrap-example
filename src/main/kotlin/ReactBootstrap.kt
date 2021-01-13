@@ -29,11 +29,10 @@ external interface BsAlertProps : RProps {
 external val bsForm: RClass<BsFormProps>
 
 external interface BsFormProps : RProps {
-  var variant: String
-  var closeLabel: String
-  var show: Boolean
-  var dismissible: Boolean
-  var onClose: () -> Unit
+  var inline: Boolean
+  var validated: Boolean
+  var action: String
+  var onSubmit: () -> Unit
 }
 
 @JsName("Container")
@@ -44,11 +43,25 @@ external interface BsContainerProps : RProps {
 }
 
 @JsName("Row")
-external val bsRow: RClass<RProps>
+external val bsRow: RClass<BsRowProps>
+
+external interface BsRowProps : RProps {
+  var xs: Int
+  var sm: Int
+  var md: Int
+  var lg: Int
+  var xl: Int
+  var noGutters: Boolean
+}
+
 
 @JsName("Col")
 external val bsCol: RClass<BsColProps>
 
 external interface BsColProps : RProps {
   var xs: Int
+  var sm: Int
+  var md: Int
+  var lg: Int
+  var xl: Int
 }
